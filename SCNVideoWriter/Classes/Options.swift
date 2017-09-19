@@ -25,7 +25,7 @@ extension SCNVideoWriter {
                      videoSize: CGSize(width: 1280, height: 720),
                      fps: 60,
                      outputUrl: URL(fileURLWithPath: NSTemporaryDirectory() + "output.mp4"),
-                     fileType: AVFileTypeAppleM4V,
+                     fileType: AVFileType.m4v.rawValue,
                      codec: AVVideoCodecH264,
                      deleteFileIfExists: true)
     }

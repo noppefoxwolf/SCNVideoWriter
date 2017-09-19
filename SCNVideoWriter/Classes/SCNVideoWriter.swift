@@ -40,8 +40,8 @@ public class SCNVideoWriter {
     renderer.scene = scene
     
     self.writer = try AVAssetWriter(outputURL: options.outputUrl,
-                                    fileType: options.fileType)
-    self.input = AVAssetWriterInput(mediaType: AVMediaTypeVideo,
+                                    fileType: AVFileType(rawValue: options.fileType))
+    self.input = AVAssetWriterInput(mediaType: AVMediaType.video,
                                     outputSettings: options.assetWriterInputSettings)
     self.pixelBufferAdaptor = AVAssetWriterInputPixelBufferAdaptor(assetWriterInput: input,
                                                                    sourcePixelBufferAttributes: options.sourcePixelBufferAttributes)
