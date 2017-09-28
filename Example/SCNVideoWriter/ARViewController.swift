@@ -35,7 +35,7 @@ final class ARViewController: UIViewController {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    sceneView.session.run(ARWorldTrackingSessionConfiguration())
+    sceneView.session.run(ARWorldTrackingConfiguration())
   }
   
   override func viewDidDisappear(_ animated: Bool) {
