@@ -1,3 +1,11 @@
+# Recommendation
+
+If you want to record ARKit, try ARKitRecorder.
+Real Time record, Aspect ratio and timestamp are perfect.
+
+https://github.com/noppefoxwolf/ARKitRecorder
+
+
 # SCNVideoWriter
 
 [![Version](https://img.shields.io/cocoapods/v/SCNVideoWriter.svg?style=flat)](http://cocoapods.org/pods/SCNVideoWriter)
