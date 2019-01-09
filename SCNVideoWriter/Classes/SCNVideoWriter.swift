@@ -78,7 +78,7 @@ public class SCNVideoWriter {
     initialTime = CFAbsoluteTimeGetCurrent()
     displayLink = CADisplayLink(target: self, selector: #selector(updateDisplayLink))
     displayLink?.preferredFramesPerSecond = options.fps
-    displayLink?.add(to: .main, forMode: .commonModes)
+    displayLink?.add(to: .main, forMode: .common)
   }
   
   @objc private func updateDisplayLink() {
@@ -93,7 +93,7 @@ public class SCNVideoWriter {
   
   private func startInputPipeline() {
     writer.startWriting()
-    writer.startSession(atSourceTime: kCMTimeZero)
+    writer.startSession(atSourceTime: CMTime.zero)
     input.requestMediaDataWhenReady(on: frameQueue, using: {})
   }
   
@@ -104,7 +104,7 @@ public class SCNVideoWriter {
       guard let croppedImage = image.fill(at: videoSize) else { return }
       guard let pixelBuffer = PixelBufferFactory.make(with: videoSize, from: croppedImage, usingBuffer: pool) else { return }
       let value: Int64 = Int64(currentTime * CFTimeInterval(options.timeScale))
-      let presentationTime = CMTimeMake(value, options.timeScale)
+      let presentationTime = CMTimeMake(value: value, timescale: options.timeScale)
       pixelBufferAdaptor.append(pixelBuffer, withPresentationTime: presentationTime)
       updateFrameHandler?(croppedImage, presentationTime)
     }
